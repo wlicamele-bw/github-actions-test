@@ -11,4 +11,3 @@ jobs:
     steps:
       - run: |
           echo "Comment on PR #${{ github.event.issue.number }} ${{ github.event.issue.body }}"
-
