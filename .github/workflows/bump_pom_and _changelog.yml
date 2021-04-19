@@ -1,11 +1,11 @@
 on:
   pull_request:
-    branches:
-    - main
+    types: [opened]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot-preview[bot]' || github.event.pull_request.user.login == 'dependabot[bot]'
     name: A job to bump POM and ChangeLog
     env: 
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
