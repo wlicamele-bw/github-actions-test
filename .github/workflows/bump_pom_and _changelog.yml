@@ -22,3 +22,31 @@ jobs:
           changelogDesc: '${{ github.event.pull_request.title }}'
       - name: Get the version number
         run: echo "The Version Number is ${{ steps.bump.outputs.versionNumber }}"
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    #if: github.event.pull_request.user.login == 'dependabot-preview[bot]' || github.event.pull_request.user.login == 'dependabot[bot]'
+    name: A job to bump POM and ChangeLog
+    env: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Uses POM Version Bump
+        uses: wlicamele-bw/pom-version-bump@main
+        id: bump
+        with:
+          bumpVersionType: bump
+          bumpVersion: patch
+          bumpChangelog: true
+          changelogDesc: '${{ github.event.pull_request.title }}'
+      - name: Get the version number
+        run: echo "The Version Number is ${{ steps.bump.outputs.versionNumber }}"
+      - name: Auto approve
+      - uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
