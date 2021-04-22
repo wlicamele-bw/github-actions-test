@@ -22,3 +22,7 @@ jobs:
           changelogDesc: '${{ github.event.pull_request.title }}'
       - name: Get the version number
         run: echo "The Version Number is ${{ steps.bump.outputs.versionNumber }}"
+      - name: auto approve
+      - uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
