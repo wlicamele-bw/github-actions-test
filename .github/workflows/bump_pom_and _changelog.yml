@@ -21,4 +21,11 @@ jobs:
           bumpChangelog: true
           changelogDesc: '${{ github.event.pull_request.title }}'
       - name: Get the version number
-        run: echo "The Version Number is ${{ steps.bump.outputs.versionNumber }}"
+        run: 
+          echo "The Version Number is ${{ steps.bump.outputs.versionNumber }}"
+          echo '${{ github.event.pull_request.commit_title }}'
+      - name: Approve Pull Request
+        uses: juliangruber/approve-pull-request-action@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: 1
