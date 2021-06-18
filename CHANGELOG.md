@@ -1,5 +1,7 @@
 * PENDING: vx.y.z
     * ...
+* v1.1.6
+    * Update bump_pom_and_changelog.yml
 * v1.1.5
     * testing another bump
 * v1.1.4
