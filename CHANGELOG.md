@@ -1,5 +1,7 @@
 * PENDING: vx.y.z
     * ...
+* v..1
+    * bump version
 * v1.1.5
     * testing another bump
 * v1.1.4
