@@ -1,5 +1,7 @@
 * PENDING: vx.y.z
     * ...
+* v1.1.7
+    * bump pom
 * v1.1.6
     * testing another bump
 * v1.1.5
