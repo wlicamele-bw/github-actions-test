@@ -1,5 +1,7 @@
 * PENDING: vx.y.z
     * ...
+* v..3
+    * Update pom.xml
 * v..2
     * Update bump_pom_and _changelog.yml
 * v..1
