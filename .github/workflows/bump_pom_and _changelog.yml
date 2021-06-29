@@ -22,6 +22,7 @@ jobs:
           bumpVersion: patch
           bumpChangelog: true
           changelogDesc: '${{ github.event.pull_request.title }}'
+          mainBranchName: main
       - name: Auto Approve
         uses: hmarr/auto-approve-action@v2
         with:
