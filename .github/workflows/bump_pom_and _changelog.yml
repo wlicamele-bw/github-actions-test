@@ -1,6 +1,6 @@
 on:
   pull_request:
-    types: [opened]
+    types: [opened, synchronize]
 
 jobs:
   test:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with: 
+          fetch-depth: 0
       - name: Uses POM Version Bump
         uses: wlicamele-bw/pom-version-bump@main
         id: bump
@@ -26,3 +28,7 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Get the version number
         run: echo "The Version Number is ${{ steps.bump.outputs.versionNumber }}"
+      - name: auto approve
+        uses: hmarr/auto-approve-action@v2
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
