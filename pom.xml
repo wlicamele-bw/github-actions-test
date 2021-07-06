@@ -4,5 +4,5 @@
 
   <groupId>github-actions-test</groupId>
   <artifactId>test</artifactId>
-  <artifact-version>2.0.0-SNAPSHOT</artifact-version>
+  <artifact-version>..3-SNAPSHOT</artifact-version>
 </project>
